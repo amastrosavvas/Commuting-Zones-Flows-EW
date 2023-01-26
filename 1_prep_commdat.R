@@ -89,17 +89,21 @@ commdat[["dir annual by LAD20X"]] <-
   summarise(commuters = sum(commuters)) %>%
   ungroup()
 
-
 # Get gross commuting flows for England and Wales; get LAD20X version
 commdat[["undir annual by LAD"]] <-
   commdat[["dir annual by LAD"]] %>%
-  left_join(., .,  by = c(
-    "LADCD_O" = "LADCD_D", 
-    "LADNM_O" = "LADNM_D", 
-    "LADCD_D" = "LADCD_O", 
-    "LADNM_D" = "LADNM_O", 
-    "Year" = "Year"
-  )) %>% mutate(
+  left_join(
+    .,
+    .,  
+    by = c(
+     "LADCD_O" = "LADCD_D", 
+     "LADNM_O" = "LADNM_D", 
+     "LADCD_D" = "LADCD_O", 
+     "LADNM_D" = "LADNM_O", 
+     "Year" = "Year"
+    )
+   ) %>% 
+  mutate(
     commuters = case_when(
       LADCD_O == LADCD_D ~ as.integer((commuters.x + commuters.y)/2),
       TRUE ~ as.integer(commuters.x + commuters.y)
@@ -109,13 +113,18 @@ commdat[["undir annual by LAD"]] <-
 
 commdat[["undir annual by LAD20X"]] <-
   commdat[["dir annual by LAD20X"]] %>%
-  left_join(., .,  by = c(
-    "LAD20XCD_O" = "LAD20XCD_D", 
-    "LAD20XNM_O" = "LAD20XNM_D", 
-    "LAD20XCD_D" = "LAD20XCD_O", 
-    "LAD20XNM_D" = "LAD20XNM_O", 
-    "Year" = "Year"
-  )) %>% mutate(
+  left_join(
+    ., 
+    ., 
+    by = c(
+     "LAD20XCD_O" = "LAD20XCD_D", 
+     "LAD20XNM_O" = "LAD20XNM_D", 
+     "LAD20XCD_D" = "LAD20XCD_O", 
+     "LAD20XNM_D" = "LAD20XNM_O", 
+     "Year" = "Year"
+    )
+   ) %>% 
+   mutate(
     commuters = case_when(
       LAD20XCD_O == LAD20XCD_D ~ as.integer((commuters.x + commuters.y)/2),
       TRUE ~ as.integer(commuters.x + commuters.y)
