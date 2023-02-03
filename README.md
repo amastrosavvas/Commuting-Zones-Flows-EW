@@ -6,9 +6,9 @@
 - `./output/lad20x_cz.csv` contains a correspondence table matching harmonised local authority districts (LAD20X) covering the whole of England and Wales to Tolbert-Sizer commuting zones (CZ).
   
 - `./output/commdat.RDS`  is a list containing the following data frames:
-    - `commdat[["dir annual by LAD"]]`  contains directed commuting flows by UK Census year (1991, 2001, 2011) and 2001 Interaction District pair (for 1991 and 2001) or Census Merged LAD pair (for 2011).
+    - `commdat[["dir annual by LAD"]]`  contains directed commuting flows by UK Census year (1991, 2001, 2011) and 2001 Interaction District pair (for 1991, 2001) or Census Merged LAD pair (for 2011).
   
-    - `commdat[["undir annual by LAD"]]`contains gross commuting flows by  UK Census year (1991, 2001, 2011) and 2001 Interaction District pair (for 1991 and 2001) or Census Merged LAD pair (for 2011).
+    - `commdat[["undir annual by LAD"]]`contains gross commuting flows by  UK Census year (1991, 2001, 2011) and 2001 Interaction District pair (for 1991, 2001) or Census Merged LAD pair (for 2011).
   
     -  `commdat[["dir annual by LAD20X"]]` contains directed commuting flows  by UK Census year (1991, 2001, 2011) and  LAD20X pair.
   
